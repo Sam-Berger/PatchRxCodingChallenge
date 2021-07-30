@@ -38,10 +38,13 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     backgroundColor: 'blue'
   },
-  medication: {
+  medicationRow: {
     borderWidth: 1,
     borderColor: 'lightgray',
-    padding: 10
+    flex:1,
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 16
   },
   barContainer: {
     height: 10,
@@ -55,13 +58,89 @@ const styles = StyleSheet.create({
   },
   historyDay: {
 
-  }
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: 400
+  },
+  medicationTime:{
+    color: "#959DA5",
+    fonSize: 12,
+    lineHeight: 15
+
+  },
+  pill:{
+    fontSize: 16,
+    lineHeight: 20,
+    color: "#303030",
+    fontWeight: 'bold'
+  },
+  amount:{
+    fontSize: 16,
+    lineHeight: 20,
+    color: "#303030"
+  },
+  medCardButton: {
+    // flex: ;
+flexDirection: "row",
+justifyContent: "flex-end",
+alignItems: "flex-start",
+padding: 0,
+position: "static",
+width: 100,
+height: 40,
+left: 227,
+top: 25,
+background: "#5C7CFA",
+bordeRadius: 4
+
+
+
+
+
+  },
+  med: {
+    position: "static",
+    width: 40,
+    height: 40,
+    left: 56,
+    top: 25,
+    transform: [{ matrix:[-1, 0, 0, 1, 0, 0] }]
+  },
+  medInfo: {
+    // display: flex;
+flexDirection: "column",
+alignItems: "flex-start",
+padding: 0,
+position: "static",
+width: 139,
+height: 58,
+left: 72,
+top: 16
+  },
+
+  // buttonCircular: {
+  //   position: "absolute",
+  //   left: "92.5%",
+  //   right: "-77.5%",
+  //   top: "7.5%",
+  //   bottom: "7.5%",
+  //   shadowColor:  "rgba(171, 184, 198, 0.35)",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 2
+  //   },
+  //   shadowRadius: 8
+  // }
+
+
+
 });
 
 function TakeMeds () {
   return (
     <View style={styles.section}>
-      <Text>Take your meds</Text>
+      <Text style = {styles.header}>Take your meds</Text>
       <Button title="Full schedule" />
       <Text>Morning Medication</Text>
       <Text>6 routine meds</Text>
@@ -73,11 +152,14 @@ function TakeMeds () {
         <View style={styles.openCircle}></View>
         <View style={styles.openCircle}></View>
       </View>
-      <View style={styles.medication}>
-        <Text>6:00 AM</Text>
-        <Text>Vitamin C</Text>
-        <Text>Take 1 tablet</Text>
-        <Button title="Take" />
+      <View style={styles.medicationRow}>
+        <Button style={styles.med}></Button>
+          <View style={styles.medInfo}>
+          <Text style={styles.medicationTime}>6:00 AM</Text>
+          <Text style={styles.pill}>Vitamin C</Text>
+          <Text style={styles.amount}>Take 1 tablet</Text>
+        </View>
+        <Button style={styles.medCardButton}title="Take ✓" />
       </View>
       <View style={styles.medication}>
         <Text>6:00 AM</Text>
